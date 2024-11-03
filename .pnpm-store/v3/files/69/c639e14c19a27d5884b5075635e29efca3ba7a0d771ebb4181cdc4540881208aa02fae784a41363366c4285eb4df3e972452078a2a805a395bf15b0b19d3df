@@ -1,0 +1,8 @@
+import { Node } from '@humanwhocodes/momoa';
+import { HintIssue } from './types';
+export declare function makeIssue(message: string, node: Node): HintIssue;
+export declare class HintError extends Error {
+    issues: HintIssue[];
+    constructor(issues: HintIssue[]);
+    get message(): string;
+}

@@ -1,0 +1,4 @@
+/// <reference path="../types/momoa.d.ts" />
+import { ObjectNode } from '@humanwhocodes/momoa';
+import { Ctx } from './types';
+export declare function getMemberValue(ctx: Ctx, node: ObjectNode, name: string): import("@humanwhocodes/momoa").Node | null;

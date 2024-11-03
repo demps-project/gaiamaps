@@ -1,0 +1,3 @@
+import { ArrayNode } from '@humanwhocodes/momoa';
+import { Ctx } from './types';
+export declare function enforceSamePosition(ctx: Ctx, node: ArrayNode): void;

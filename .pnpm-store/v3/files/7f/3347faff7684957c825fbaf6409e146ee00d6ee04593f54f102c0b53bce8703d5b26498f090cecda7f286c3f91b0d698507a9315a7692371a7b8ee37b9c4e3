@@ -1,0 +1,3 @@
+import { ArrayNode } from '@humanwhocodes/momoa';
+import { Ctx } from './types';
+export declare function enforcePosition(ctx: Ctx, node: ArrayNode | null): void;
