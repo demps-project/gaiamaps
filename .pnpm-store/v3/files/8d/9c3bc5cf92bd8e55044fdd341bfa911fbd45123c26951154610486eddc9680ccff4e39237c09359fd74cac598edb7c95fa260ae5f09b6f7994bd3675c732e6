@@ -1,3 +1,0 @@
-import { Node, ObjectNode } from '@humanwhocodes/momoa';
-import { Ctx } from './types';
-export declare function getObject(ctx: Ctx, node: Node | null): ObjectNode | null;

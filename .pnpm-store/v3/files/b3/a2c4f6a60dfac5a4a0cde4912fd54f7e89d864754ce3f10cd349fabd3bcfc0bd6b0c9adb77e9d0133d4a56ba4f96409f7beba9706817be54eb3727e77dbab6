@@ -1,7 +1,0 @@
-import { Node, ArrayNode } from '@humanwhocodes/momoa';
-import { Ctx } from './types';
-declare type PositionKind = 'Polygon' | 'LineString';
-export declare function enforcePositionArray(ctx: Ctx, node: Node | null, kind?: PositionKind): void;
-export declare function enforcePositionArray2(ctx: Ctx, node: Node | null, kind?: PositionKind): void;
-export declare function enforcePositionArray3(ctx: Ctx, node: ArrayNode | null, kind?: PositionKind): void;
-export {};
