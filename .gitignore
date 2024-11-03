@@ -12,5 +12,5 @@ vite.config.ts.timestamp-*
 supervisord.pid
 sim.ini
 docker-compose.yml
-.devcontainer
+.devcontainer*
 .pnpm-store

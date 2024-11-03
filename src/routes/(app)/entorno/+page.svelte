@@ -44,8 +44,8 @@
 </script>
 
 <svelte:head>
-	<title>DEMPS | Environment</title>
-	<meta name="description" content="Environment" />
+	<title>DEMPS | Geographic area</title>
+	<meta name="description" content="Geographic area" />
 </svelte:head>
 
 <section class="isolate size-full">

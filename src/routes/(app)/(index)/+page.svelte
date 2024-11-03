@@ -1,6 +1,7 @@
 <svelte:head>
-	<title>DEMPS | Inicio</title>
-	<meta name="description" content="DEMPS | Inicio" />
+	<title>DEMPS | Main</title>
+	<meta name="description" content="DEMPS | Main" />
+	<meta http-equiv="refresh" content="0; URL=/entorno" />
 </svelte:head>
 
 <section class="grid h-full place-items-center items-center justify-items-center">
