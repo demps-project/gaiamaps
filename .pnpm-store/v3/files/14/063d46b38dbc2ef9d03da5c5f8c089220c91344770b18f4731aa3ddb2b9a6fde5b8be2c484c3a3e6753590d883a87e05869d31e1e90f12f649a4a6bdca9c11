@@ -1,3 +1,0 @@
-import { Node } from '@humanwhocodes/momoa';
-import { Ctx } from './types';
-export declare function arrayIsNumbers(ctx: Ctx, elements: Node[], name: string): void;

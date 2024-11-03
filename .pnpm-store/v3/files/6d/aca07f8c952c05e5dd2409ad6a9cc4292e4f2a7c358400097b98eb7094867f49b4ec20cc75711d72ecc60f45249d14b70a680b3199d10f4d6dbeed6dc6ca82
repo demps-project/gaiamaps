@@ -1,3 +1,0 @@
-import { ObjectNode } from '@humanwhocodes/momoa';
-import { Ctx } from './types';
-export declare function checkDuplicateKeys(ctx: Ctx, parent: ObjectNode): ObjectNode;

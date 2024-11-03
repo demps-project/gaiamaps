@@ -1,5 +1,0 @@
-import { ObjectNode } from '@humanwhocodes/momoa';
-import { Ctx } from './types';
-declare type PropertiesFrom = 'Feature' | 'FeatureCollection' | 'Geometry';
-export declare function forbidConfusingProperties(ctx: Ctx, node: ObjectNode, propertiesFrom: PropertiesFrom): void;
-export {};
