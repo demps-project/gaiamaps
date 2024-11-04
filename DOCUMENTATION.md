@@ -29,7 +29,7 @@ type PopupFields = Record<string, InputPopupField | SelectPopupField>;
 
 ### Configuración de Campos
 
-Los campos del formulario se definen en el objeto `popupFields`. Cada campo tiene una clave única y una configuración específica.
+Los campos del formulario se definen en el objeto `popupFields` en el archivo `src/lib/config.ts`. Cada campo tiene una clave única y una configuración específica.
 
 #### Ejemplo de Configuración
 
