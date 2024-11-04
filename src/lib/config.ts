@@ -20,7 +20,7 @@ export const popupFields = {
 		type: 'select',
 		defaultValue: '',
 		attributes: {},
-		options: ['initial', 'flood', 'safe']
+		options: ['building', 'initial', 'flood', 'safe']
 	},
 	stroke: {
 		type: 'color',
