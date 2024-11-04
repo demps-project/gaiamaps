@@ -2,7 +2,7 @@
 
 ## Popups del mapa
 
-Los popups del mapa aparecen en pantalla tras hacer click en una zona geográfica. Estos popups contienen un formulatio con los atributos y propiedades de la zona seleccionada.
+Los popups del mapa aparecen en pantalla tras hacer click en una zona geográfica. Estos popups contienen un formulario con los atributos y propiedades de la zona seleccionada.
 
 ![popup](./static/popup.png)
 
@@ -29,7 +29,7 @@ type PopupFields = Record<string, InputPopupField | SelectPopupField>;
 
 ### Configuración de Campos
 
-Los campos del formulario se definen en el objeto `popupFields`. Cada campo tiene una clave única y una configuración específica.
+Los campos del formulario se definen en el objeto `popupFields` en el archivo `src/lib/config.ts`. Cada campo tiene una clave única y una configuración específica.
 
 #### Ejemplo de Configuración
 
