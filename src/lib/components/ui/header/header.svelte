@@ -8,11 +8,11 @@
 
 	/*const navLinks: NavLinks[] = [
 		{ label: 'inicio', href: '/' },
-		{ label: 'Geographic Zone', href: '/entorno' },
+		{ label: 'Geographic Zone', href: '/gaiamaps/entorno' },
 		{ label: 'parámetros', href: '/parametros' }
 	];*/
 
-	const navLinks: NavLinks[] = [{ label: 'Geographic Zone', href: '/entorno' }];
+	const navLinks: NavLinks[] = [{ label: 'Geographic Zone', href: '/gaiamaps/entorno' }];
 </script>
 
 <header class="sticky top-0 z-[999] flex h-16 items-center justify-around bg-white shadow">
