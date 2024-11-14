@@ -4,14 +4,15 @@ import adapter from '@sveltejs/adapter-node';
 const config = {
 	kit: {
 		adapter: adapter({
-			precompress: true
+			precompress: true,
+			out: 'build/gaiamaps'
 		}),
 		serviceWorker: {
 			register: !process.argv.includes('dev')
 		}
 	},
 	compilerOptions: {
-		modernAst: true,
+		modernAst: true
 	}
 };
 
