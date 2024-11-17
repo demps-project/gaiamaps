@@ -14,3 +14,4 @@ sim.ini
 docker-compose.yml
 .devcontainer*
 .pnpm-store
+/www
