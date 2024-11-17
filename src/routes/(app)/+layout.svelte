@@ -2,7 +2,6 @@
 	import '../../app.css';
 
 	import { Toaster } from 'svelte-sonner';
-	import { Header } from '$lib/components/ui';
 	import { onNavigate } from '$app/navigation';
 
 	const { children } = $props();
@@ -20,8 +19,7 @@
 </script>
 
 <div class="grid min-h-screen grid-rows-[auto_1fr_auto]">
-	<Header />
-
+	<header></header>
 	<main>
 		{@render children()}
 	</main>
