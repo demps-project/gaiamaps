@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de evacuaciones costeras</title>
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/tooltip.css">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+
+<body>
+
+<div id="layout">
+    <!-- Menu toggle
+    <a href="#menu" id="menuLink" class="menu-link">
+        <span></span>
+    </a>
+		
+	<div w3-include-html="menu.html"></div>
+	
+
+	 -->
+
+
+    <div id="main">
+        <div class="header">
+            <h1>Simulador de evacuación en ciudades costeras</h1>
+            <h2>Instrucciones</h2> 
+		</div>
+		
+		<div class="pure-menu pure-menu-horizontal pure-menu-scrollable">
+		    <ul class="pure-menu-list">
+		        <li class="pure-menu-item">
+		            <a href="instrucciones.html" class="pure-menu-link">Instrucciones</a>
+		        </li>
+		        <li class="pure-menu-item">
+		            <a href="archivos.html" class="pure-menu-link">Files</a>
+		        </li>
+		        <li class="pure-menu-item">
+		            <a href="gaiamaps.html" class="pure-menu-link">GaiaMaps</a>
+		        </li>
+		        <!--<li class="pure-menu-item">
+		            <a href="descripcion.html" class="pure-menu-link">Descripción</a>
+		        </li>
+		        <li class="pure-menu-item">
+		            <a href="documentos.html" class="pure-menu-link">Documentos</a>
+		        </li>-->
+		    </ul>
+		</div>
+
+
+		<!--
+		 *****************************
+	            SECCION DESCRIPCION 
+	     *****************************
+		-->
+		
+		<a id="descripcion"></a>
+        <div class="content">
+			<p>Para realizar una simulación de prueba, se debe escoger algún archivo <font face="courier">.config</font> diponibles en
+				el directorio <font face="courier">/sim</font>. 
+			Por ejemplo, el archivo <font face="courier">vdm-pob-vergara.config</font> tiene parámetros 
+			predefinidos para el sector de la Población Vergara, en Viña del Mar.
+
+			<p>Uno de los parámetros de configuración es la definición del archivos de zonas geográficas. Este archivo
+				es de tipo geojson y se define en la entrada <font face="courier">"input":"zones"<font> del archivos de configuración. El archivo
+				definido es <font face="courier">/sim/input/vdm-pob-vergara/zones-2019.geojson</font>, que se puede editar en forma gráfica a través 
+				del servicio <a href="gaiamaps.html"><b>GaiaMaps</b></a>, disponible en el menú de arriba.
+			
+			<p>Para ejecutar el simulador <font face="courier"><b>demps</b></font>, se debe considerar que está asociado al servicio 
+				<font face="courier"><b>simulator</b></font> en el archivo <font face="courier">docker-compose.yml</font>.
+		
+			<pre>
+				$ docker compose exec simulator \
+					demps --config /sim/vdm-pob-vergara.config --outdir /sim/output/vdm-pob-vergara
+					[...salida del simulador...]
+				$ 
+			</pre>
+
+			<p>El archivo de configuración <font face="courier">vdm-pob-vergara.config</font> establece que el tiempo a simular son 3600 segundos y 
+				los reportes de posición de los agentes son cada 10 segundos. Estos se almacenan en el directorio <font face="courier">agents</font>. 
+				Se puede comprobar que existen esos archivos a través del comando:
+
+			<pre>
+				$ ls output/vdm-pob-vergara/agents | sort
+				0000000000.txt
+				0000000010.txt
+				0000000020.txt
+				0000000030.txt
+				...
+				0000003570.txt
+				0000003580.txt
+				0000003590.txt
+				0000003600.txt
+				$
+			</pre>
+
+			Adicionalmente, puede comprobar que el contenido de los archivos contiene datos geográficos.
+			<pre>
+				$ head -3 output/vdm-pob-vergara/agents/0000000000.txt 
+				0 -39.82078417 -73.24946709 0 0 1 0.00000000 0.00000000 0.00000000  [...]
+				1 -39.82154805 -73.24957002 0 0 1 0.00000000 0.00000000 0.00000000  [...]
+				2 -39.81928000 -73.24770908 0 0 1 0.00000000 0.00000000 0.00000000  [...]
+			</pre>
+        </div>
+    </div>
+</div>
+
+<!--
+<script src="js/ui.js"></script>
+-->
+
+</body>
+</html>

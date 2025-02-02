@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de evacuaciones costeras</title>
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/tooltip.css">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+
+<body>
+
+<div id="layout">
+    <!-- Menu toggle
+    <a href="#menu" id="menuLink" class="menu-link">
+        <span></span>
+    </a>
+		
+	<div w3-include-html="menu.html"></div>
+	
+
+	 -->
+
+
+    <div id="main">
+        <div class="header">
+            <h1>Simulador de evacuación en ciudades costeras</h1>
+            <h2>Descripción</h2> 
+		</div>
+		
+		<div class="pure-menu pure-menu-horizontal pure-menu-scrollable">
+		    <ul class="pure-menu-list">
+		        <li class="pure-menu-item">
+		            <a href="instrucciones.html" class="pure-menu-link">Instrucciones</a>
+		        </li>
+		        <li class="pure-menu-item">
+		            <a href="archivos.html" class="pure-menu-link">Files</a>
+		        </li>
+		        <li class="pure-menu-item">
+		            <a href="gaiamaps.html" class="pure-menu-link">GaiaMaps</a>
+		        </li>
+		        <li class="pure-menu-item">
+		            <a href="descripcion.html" class="pure-menu-link">Descripción</a>
+		        </li>
+		        <li class="pure-menu-item">
+		            <a href="documentos.html" class="pure-menu-link">Documentos</a>
+		        </li>
+		    </ul>
+		</div>
+
+
+		<!--
+		 *****************************
+	            SECCION DESCRIPCION 
+	     *****************************
+		-->
+		
+		<a id="descripcion"></a>
+        <div class="content">
+			El simulador desarrollado es un simulador basado en agentes, denominado Disaster Evacuation and Mobility Patterns Simulator (DEMPS), que modela el comportamiento de personas en situaciones de evacuación masiva en áreas costeras. Los habitantes de la zona de estudio se modelan con dos tipos de agentes: Residentes y Visitantes. Cuando la evacuación se produce, los agentes Residentes seleccionan la ruta más rápida a las zonas seguras, utilizando el algoritmo de Dijkstra [1] implementado en la libraría Open Source Routing Machine (OSRM) [2]. Los agentes Visitantes se clasifican inicialmente como Visitantes Tipo II, que caminan en forma aleatoria, sin rumbo definido. Estos agentes pueden, eventualmente, seguir a grupos de Residentes, tranformándose en Visitantes Tipo I. Ambos tipos de agentes se mueven en un espacio continuo que es construido en base a datos geográficos previos. Cada agente puede pertenecer a uno de los cuatro grupo etareos que están definidos. La distribución de agentes en estos grupos se basa en datos sensales. Los movimientos e interacciones de los agentes incluyen los detalles especificados en el Social Force Model (SFM) [3] y el Required Safe Egress Time Evacuation Model (RSET) [4]. Además, cada agente toma en cuenta la densidad de personas en torno a él para determninar su velocidad. Si hay personas que están adelante, dentro de su área de covertura, el agente disminuye su velocidad. Finalmente, el simulador entrega reportes sobre  variables de interés definidas como la distancia hacia las zonas seguras separados por rangos etáreos. Esto puede ser útil para quienes toman las decisiones, ya que pueden brindar ayuda especial en estos puntos críticos a las personas que no pueden llegar a zonas seguras.
+				
+		
+            
+        </div>
+    </div>
+</div>
+
+<!--
+<script src="js/ui.js"></script>
+-->
+
+</body>
+</html>

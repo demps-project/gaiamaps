@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de evacuaciones costeras - Iquique</title>
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/tooltip.css">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+
+<body>
+
+<div id="layout">
+   
+    <div id="main">
+        <div class="header">
+            <h1>Simulador de evacuación en ciudades costeras</h1>
+            <h2>Ejemplo de simulación para Iquique</h2> 
+        </div>
+		
+		<div class="pure-menu pure-menu-horizontal pure-menu-scrollable">
+		    <a href="index.html#ejemplos" class="pure-menu-heading pure-menu-link">Principal</a>
+		    <ul class="pure-menu-list">
+		        <li class="pure-menu-item">
+		            <a href="#descripcion" class="pure-menu-link">Descripción del escenario</a>
+		        </li>
+		        <li class="pure-menu-item">
+		            <a href="#animacion" class="pure-menu-link">Animación</a>
+		        </li>
+		        <li class="pure-menu-item">
+		            <a href="#resultados" class="pure-menu-link">Resultados</a>
+		        </li>
+		    </ul>
+		</div>
+		
+		<!--
+		 *****************************
+	            SECCION DESCRIPCION 
+	     *****************************
+		-->
+
+		<a id="descripcion"></a>
+        <div class="content">
+			<h2 class="content-subhead">Descripci&oacute;n del escenario</h2>
+			
+            <div class="pure-g">
+                <div class="pure-u-1-1" align="center">
+                    <a href="ejemplos/iquique/sim-example/animacion.html" target="_blank"><img class="pure-img-responsive" src="ejemplos/iquique/mapa-sim.png" alt=""></a>
+					<br>Figura 1: Ciudad de Iquique. La zona gris representa la zona inicial donde los agentes son asignados. Las áreas verdes representan las zonas seguras. 
+                </div>     					          
+            </div>
+			
+			<br>
+			El escenario de evacuación de este ejemplo corresponde a un sector de la ciudad de Iquique, de 20 km<sup>2</sup>. La zona inicial (color gris) donde se ubican los agentes abarca aproximadamente 5 km<sup>2</sup>. Las zonas seguras (Z1, Z2, Z3, Z4 y Z5) están representadas por áreas de color verde. Se simulan 33000 personas, de los cuales, 30000 son Residentes y 3000 son Visitantes. Éstos últimos, cuando son creados, no conocen la ubicación de las zonas seguras. Desde el punto de vista de la simulación, se denominan <i>Visitantes tipo II</i>. Sin embargo, estos agentes pueden determinar una zona segura siguiendo a grupos de agentes que avanzan en la misma dirección. Cuando sucede esto, un Visitante tipo II se transforma en un <i>Visitante tipo I</i>.
+			
+			<p>
+			<table class="pure-table pure-table-horizontal">
+			    <thead>
+			        <tr>
+			            <th>Parámetro</th>
+			            <th>Valor</th>
+			            <th>Unidades</th>
+			            <th>Observación</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr>
+			            <td>Residentes</td>
+			            <td>30000</td>
+			            <td>personas</td>
+			            <td>&nbsp;</td>
+			        </tr>
+			        <tr>
+			            <td>Visitantes</td>
+			            <td>3000</td>
+			            <td>personas</td>
+			            <td>&nbsp;</td>
+			        </tr>
+			        <tr>
+			            <td>&sigma;</td>
+			            <td>150</td>
+			            <td>segundos</td>
+			            <td>Disperción del tiempo de salida de las personas (Variable aleatoria Rayleigh).</td>
+			        </tr>
+			        <tr>
+			            <td>Tiempo de simulación</td>
+			            <td>3600</td>
+			            <td>segundos</td>
+			            <td>&nbsp;</td>
+			        </tr>
+			        <tr>
+			            <td>Cantidad de experimentos</td>
+			            <td>30</td>
+			            <td>&nbsp;</td>
+			            <td>&nbsp;</td>
+			        </tr>
+			        <tr>
+			            <td>Grupo etáreo G0</td>
+			            <td>21%</td>
+			            <td style="white-space:nowrap">Porcentaje de personas</td>
+			            <td>Según datos del censo 2017</td>
+			        </tr>
+			        <tr>
+			            <td>Grupo etáreo G1</td>
+			            <td>24%</td>
+			            <td style="white-space:nowrap">Porcentaje de personas</td>
+			            <td>Según datos del censo 2017</td>
+			        </tr>
+			        <tr>
+			            <td>Grupo etáreo G2</td>
+			            <td>46%</td>
+			            <td style="white-space:nowrap">Porcentaje de personas</td>
+			            <td>Según datos del censo 2017</td>
+			        </tr>
+			        <tr>
+			            <td>Grupo etáreo G3</td>
+			            <td>9%</td>
+			            <td style="white-space:nowrap">Porcentaje de personas</td>
+			            <td>Según datos del censo 2017</td>
+			        </tr>
+			    </tbody>
+			</table>
+			<center>Tabla 1: Parámetros de la simulación de evacuación.</center>
+			
+			<a class="pure-button pure-button-primary" href="#">Top</a>
+			
+			<!--
+				 *****************************
+			            SECCION ANIMACION 
+			     *****************************
+			-->
+			
+			<a id="animacion"></a>
+			<h2 class="content-subhead">Animación de la simulación</h2>
+			
+			La animación de uno de los experimentos realizados se puede visualizar en el siguiente video. Los códigos de color para los agentes se resumen en la Tabla 2.
+			
+			<p>
+			
+			<table class="pure-table pure-table-horizontal">
+			    <thead>
+			        <tr>
+			            <th>Tipo de agente</th>
+			            <th>Color</th>
+			            <th>Observación</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr>
+			            <td>Residente</td>
+			            <td>Rojo</td>
+			            <td>Representa a personas que conocen cómo llegar a las zonas seguras</td>
+			        </tr>
+			        <tr>
+			            <td>Visitante tipo II</td>
+			            <td>Azul</td>
+			            <td>Representa a personas en tránsito que no han logrado determinar cómo llegar a las zonas seguras</td>
+			        </tr>
+			        <tr>
+				        <tr>
+				            <td>Visitante tipo I</td>
+				            <td>Amarillo</td>
+				            <td>Representa a personas en tránsito  que han logrado determinar cómo llegar a las zonas seguras</td>
+				        </tr>
+			        </tr>
+			    </tbody>
+			</table>
+			<center>Tabla 2: Códigos de color utlizandos en la animación de la evacuación.</center>
+			
+			<p>
+				<video width="640" height="520" controls>
+				  <source src="ejemplos/iquique/iquique.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+				</video>
+			
+			
+           <!-- <div class="pure-g">
+                <div class="pure-u-1-1" align="center">
+                    <a href="ejemplos/iquique/sim-example/animacion.html" target="_blank"><img class="pure-img-responsive" src="ejemplos/iquique/mapa-anim.png" alt=""></a>
+					<br>Figura 2.
+                </div>     					          
+            </div>-->
+			
+			<a class="pure-button pure-button-primary" href="#">Top</a>
+			
+			<!--
+				 *****************************
+			            SECCION RESULTADOS
+			     *****************************
+			-->
+			
+			<a id="resultados"></a>
+			<h2 class="content-subhead">Resultados</h2>
+			
+			<table class="pure-table pure-table-horizontal">
+			    <thead>
+			        <tr>
+			            <th>Variable</th>
+			            <th>Valor</th>
+			            <th>Unidades</th>
+			            <th>Observación</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr>
+			            <td>Evacuados</td>  
+			            <td style="white-space:nowrap"> 32025 &plusmn; 10 (97.05%) </td>
+			            <td>personas</td>
+			            <td>&nbsp;</td>
+			        </tr>
+			        <tr>
+			            <td>No evacuados</td> 
+			            <td style="white-space:nowrap"> 975 &plusmn; 10 (2.95%) </td>
+			            <td>personas</td>
+			            <td>&nbsp;</td>
+			        </tr>
+			        <tr>
+			            <td style="white-space:nowrap">50% evacuados</td>
+			            <td> 24.4 / 24.6 / 24.8 <br>(min / prom / max)</td>
+			            <td>min</td>
+			            <td>Tiempo necesario para evacuar al 50% de la población.</td>
+			        </tr>
+			        <tr>
+			            <td style="white-space:nowrap">75% evacuados</td>
+			            <td> 31.6 / 31.8 / 32.0  <br>(min / prom / max)</td>
+			            <td>min</td>
+			            <td>Tiempo necesario para evacuar al 75% de la población.</td>
+			        </tr>
+			    </tbody>
+			</table>
+			
+			<br>
+			La Figura 3 muestra el porcentaje de personas evacuadas a medida que transcurre el proceso de evacuación. 
+			
+            <div class="pure-g">
+                <div class="pure-u-1-1" align="center">
+                    <img class="pure-img-responsive" src="ejemplos/iquique/cumulative-evac.png" alt="">
+					<br>Figura 3: Cumulative porcentage of agents evacuated.
+                </div>   
+			</div>
+			
+			<br>
+			Además, los datos entregados por el simulador permiten determinar a qué distancia de las zonas de seguridad se ubican los agentes que no logran evacuar, diferenciados por tipo (Residente, Visitante tipo I, Visitante tipo II) y por rango etáreo. Los Visitante tipo I son aquellas personas que están de paso por la ciudad y logran determinar hacia dónde hay que evacuar y los Visitante de tipo II son los que están de paso y no logran determinar hacia donde dirigirse. Inicialmente, todos los agentes visitantes son del tipo II y según la dinámica de la evacuación y su interacción con el resto de los agentes, pueden pasar a ser el tipo I.
+			
+			<p>
+			<div class="pure-g">
+                <div class="pure-u-1-1" align="center">
+                    <img class="pure-img-responsive" src="ejemplos/iquique/dist-non-evac-residents.png"  alt="" >
+					<br>Figura 4: Distance to the centroid of safe area<br>for non-evacuated Residents by Group Age.
+					<br><br>
+                </div> 	
+				
+                <div class="pure-u-1-1" align="center">
+                    <img class="pure-img-responsive" src="ejemplos/iquique/dist-non-evac-visitT1.png" alt="" >
+					<br>Figura 5: Distance to the centroid of safe area<br>for non-evacuated Visitors (type I) by Group Age.
+					<br><br>
+                </div>	
+                <div class="pure-u-1-1" align="center">
+                    <img class="pure-img-responsive" src="ejemplos/iquique/dist-non-evac-visitT2.png" alt="" >
+					<br>Figura 6: Distance to the centroid of safe area<br>for non-evacuated Visitors (type II) by Group Age.
+					<br><br>
+                </div>			          
+            </div>
+			
+			<a class="pure-button pure-button-primary" href="#">Top</a>
+
+        </div> <!-- content -->
+    </div> <!-- main -->
+</div>
+
+</body>
+</html>
+
+
+<!--
+
+--->

@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de evacuaciones costeras - Valparaíso</title>
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/tooltip.css">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+
+<body>
+
+<div id="layout">
+   
+	
+
+
+    <div id="main">
+        <div class="header">
+            <h1>Simulador de evacuación en ciudades costeras</h1>
+            <h2>Ejemplo de simulación para Valparaíso</h2> 
+        </div>
+		
+		<div class="pure-menu pure-menu-horizontal pure-menu-scrollable">
+		    <a href="index.html#ejemplos" class="pure-menu-heading pure-menu-link">Principal</a>
+		    <ul class="pure-menu-list">
+		        <li class="pure-menu-item">
+		            <a href="#descripcion" class="pure-menu-link">Descripción del escenario</a>
+		        </li>
+		        <li class="pure-menu-item">
+		            <a href="#animacion" class="pure-menu-link">Animación</a>
+		        </li>
+		        <li class="pure-menu-item">
+		            <a href="#resultados" class="pure-menu-link">Resultados</a>
+		        </li>
+		    </ul>
+		</div>
+		
+		<!--
+		 *****************************
+	            SECCION DESCRIPCION 
+	     *****************************
+		-->
+
+		<a id="descripcion"></a>
+        <div class="content">
+			<h2 class="content-subhead">Descripci&oacute;n del escenario</h2>
+			
+            <div class="pure-g">
+                <div class="pure-u-1-1" align="center">
+                    <a href="ejemplos/valpo/sim-example/animacion.html" target="_blank"><img class="pure-img-responsive" src="ejemplos/valpo/mapa-sim.png"  alt=""></a>
+					<br>Figura 1: Barrio Almendral de la ciudad de Valparaíso. La zona gris representa la zona inicial donde los agentes son asignados. Las áreas verdes representan las zonas seguras. 
+                </div>     					          
+            </div>
+			
+			<br>
+			El escenario de evacuación de este ejemplo es un sector norte de la ciudad de Valparaíso, de 4 km<sup>2</sup>, denominado "Barrio Almendral". La zona inicial (color gris) donde se ubican los agentes es el borde costero de 1 km<sup>2</sup>. Las zonas seguras (Z1, Z2 y Z3) están representadas por áreas de color verde. Se simulan 33000 personas, de los cuales, 30000 son Residentes y 3000 son Visitantes. Éstos últimos, cuando son creados, no conocen la ubicación de las zonas seguras. Desde el punto de vista de la simulación, se denominan <i>Visitantes tipo II</i>. Sin embargo, estos agentes pueden determinar una zona segura siguiendo a grupos de agentes que avanzan en la misma dirección. Cuando sucede esto, un Visitante tipo II se transforma en un <i>Visitante tipo I</i>.
+			
+			<p>
+			<table class="pure-table pure-table-horizontal">
+			    <thead>
+			        <tr>
+			            <th>Parámetro</th>
+			            <th>Valor</th>
+			            <th>Unidades</th>
+			            <th>Observación</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr>
+			            <td>Residentes</td>
+			            <td>30000</td>
+			            <td>personas</td>
+			            <td>&nbsp;</td>
+			        </tr>
+			        <tr>
+			            <td>Visitantes</td>
+			            <td>3000</td>
+			            <td>personas</td>
+			            <td>&nbsp;</td>
+			        </tr>
+			        <tr>
+			            <td>&sigma;</td>
+			            <td>300</td>
+			            <td>segundos</td>
+			            <td>Disperción del tiempo de salida de las personas (Variable aleatoria Rayleigh).</td>
+			        </tr>
+			        <tr>
+			            <td>Tiempo de simulación</td>
+			            <td>3600</td>
+			            <td>segundos</td>
+			            <td>&nbsp;</td>
+			        </tr>
+			        <tr>
+			            <td>Cantidad de experimentos</td>
+			            <td>30</td>
+			            <td>&nbsp;</td>
+			            <td>&nbsp;</td>
+			        </tr>
+			        <tr>
+			            <td>Grupo etáreo G0</td>
+			            <td>21%</td>
+			            <td style="white-space:nowrap">Porcentaje de personas</td>
+			            <td>Según datos del censo 2017</td>
+			        </tr>
+			        <tr>
+			            <td>Grupo etáreo G1</td>
+			            <td>24%</td>
+			            <td style="white-space:nowrap">Porcentaje de personas</td>
+			            <td>Según datos del censo 2017</td>
+			        </tr>
+			        <tr>
+			            <td>Grupo etáreo G2</td>
+			            <td>46%</td>
+			            <td style="white-space:nowrap">Porcentaje de personas</td>
+			            <td>Según datos del censo 2017</td>
+			        </tr>
+			        <tr>
+			            <td>Grupo etáreo G3</td>
+			            <td>9%</td>
+			            <td style="white-space:nowrap">Porcentaje de personas</td>
+			            <td>Según datos del censo 2017</td>
+			        </tr>
+			    </tbody>
+			</table>
+			<center>Tabla 1: Parámetros de la simulación de evacuación.</center>
+			
+			<a class="pure-button pure-button-primary" href="#">Top</a>
+			
+			<!--
+				 *****************************
+			            SECCION ANIMACION 
+			     *****************************
+			-->
+			
+			<a id="animacion"></a>
+			<h2 class="content-subhead">Animación de la simulación</h2>
+			
+			La animación de uno de los experimentos realizados se puede visualizar en el siguuiente video. Los códigos de color para los agentes se resumen en la Tabla 2.
+			
+			<p>
+			
+			<table class="pure-table pure-table-horizontal">
+			    <thead>
+			        <tr>
+			            <th>Tipo de agente</th>
+			            <th>Color</th>
+			            <th>Observación</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr>
+			            <td>Residente</td>
+			            <td>Rojo</td>
+			            <td>Representa a personas que conocen cómo llegar a las zonas seguras</td>
+			        </tr>
+			        <tr>
+			            <td>Visitante tipo II</td>
+			            <td>Azul</td>
+			            <td>Representa a personas en tránsito que no han logrado determinar cómo llegar a las zonas seguras</td>
+			        </tr>
+			        <tr>
+				        <tr>
+				            <td>Visitante tipo I</td>
+				            <td>Amarillo</td>
+				            <td>Representa a personas en tránsito  que han logrado determinar cómo llegar a las zonas seguras</td>
+				        </tr>
+			        </tr>
+			    </tbody>
+			</table>
+			<center>Tabla 2: Códigos de color utlizandos en la animación de la evacuación.</center>
+			
+			<p>
+			<video width="640" height="520" controls>
+			  <source src="ejemplos/valpo/valpo.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+			</video>
+			
+            <!--<div class="pure-g">
+                <div class="pure-u-1-1" align="center">
+                    <a href="ejemplos/valpo/sim-example/animacion.html" target="_blank"><img class="pure-img-responsive" src="ejemplos/valpo/mapa-anim.png" alt=""></a>
+					<br>Figura 2.
+                </div>     					          
+            </div>-->
+			
+			<a class="pure-button pure-button-primary" href="#">Top</a>
+			
+			<!--
+				 *****************************
+			            SECCION RESULTADOS
+			     *****************************
+			-->
+			
+			<a id="resultados"></a>
+			<h2 class="content-subhead">Resultados</h2>
+			
+			<table class="pure-table pure-table-horizontal">
+			    <thead>
+			        <tr>
+			            <th>Variable</th>
+			            <th>Valor</th>
+			            <th>Unidades</th>
+			            <th>Observación</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr>
+			            <td>Evacuados</td>  
+			            <td style="white-space:nowrap">32866 &plusmn; 30  (99.5%)</td>
+			            <td>personas</td>
+			            <td>&nbsp;</td>
+			        </tr>
+			        <tr>
+			            <td>No evacuados</td> 
+			            <td style="white-space:nowrap">133 &plusmn; 30  (0.5%)</td>
+			            <td>personas</td>
+			            <td>&nbsp;</td>
+			        </tr>
+			        <tr>
+			            <td style="white-space:nowrap">50% evacuados</td>
+			            <td> 17.0 / 18.5 / 19.0 <br>(min / prom / max)</td>
+			            <td>min</td>
+			            <td>Tiempo necesario para evacuar al 50% de la población.</td>
+			        </tr>
+			        <tr>
+			            <td style="white-space:nowrap">75% evacuados</td>
+			            <td> 21.5 / 22.5 / 25.0 <br>(min / prom / max)</td>
+			            <td>min</td>
+			            <td>Tiempo necesario para evacuar al 75% de la población.</td>
+			        </tr>
+			    </tbody>
+			</table>
+			
+			<br>
+			La Figura 3 muestra el porcentaje de personas evacuadas a medida que transcurre el proceso de evacuación. 
+			
+            <div class="pure-g">
+                <div class="pure-u-1-1" align="center">
+                    <img class="pure-img-responsive" src="ejemplos/valpo/cumulative-evac.png" alt="">
+					<br>Figura 3: Cumulative porcentage of agents evacuated.
+                </div>   
+			</div>
+			
+			<br>
+			Además, los datos entregados por el simulador permiten determinar a qué distancia de las zonas de seguridad se ubican los agentes que no logran evacuar, diferenciados por tipo (Residente, Visitante tipo I, Visitante tipo II) y por rango etáreo. Los Visitante tipo I son aquellas personas que están de paso por la ciudad y logran determinar hacia dónde hay que evacuar y los Visitante de tipo II son los que están de paso y no logran determinar hacia donde dirigirse. Inicialmente, todos los agentes visitantes son del tipo II y según la dinámica de la evacuación y su interacción con el resto de los agentes, pueden pasar a ser el tipo I.
+			
+			<p>
+			<div class="pure-g">
+                <div class="pure-u-1-1" align="center">
+                    <img class="pure-img-responsive" src="ejemplos/valpo/dist-non-evac-residents.png"  alt="" >
+					<br>Figura 4: Distance to the centroid of safe area<br>for non-evacuated Residents by Group Age.
+					<br><br>
+                </div> 	
+				
+                <div class="pure-u-1-1" align="center">
+                    <img class="pure-img-responsive" src="ejemplos/valpo/dist-non-evac-visitT1.png" alt="" >
+					<br>Figura 5: Distance to the centroid of safe area<br>for non-evacuated Visitors (type I) by Group Age.
+					<br><br>
+                </div>	
+                <div class="pure-u-1-1" align="center">
+                    <img class="pure-img-responsive" src="ejemplos/valpo/dist-non-evac-visitT2.png" alt="" >
+					<br>Figura 6: Distance to the centroid of safe area<br>for non-evacuated Visitors (type II) by Group Age.
+					<br><br>
+                </div>			          
+            </div>
+			
+			<a class="pure-button pure-button-primary" href="#">Top</a>
+
+        </div> <!-- content -->
+    </div> <!-- main -->
+</div>
+
+</body>
+</html>
+
+
+<!--
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#555555",
+        "fill-opacity": 0.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -71.62931442260742,
+              -33.05439276196066
+            ],
+            [
+              -71.60094738006592,
+              -33.05439276196066
+            ],
+            [
+              -71.60094738006592,
+              -33.03690978609953
+            ],
+            [
+              -71.62931442260742,
+              -33.03690978609953
+            ],
+            [
+              -71.62931442260742,
+              -33.05439276196066
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#555555",
+        "fill-opacity": 0.5,
+        "nameID": "Zona Inicial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -71.6258382797241,
+              -33.03928422102748
+            ],
+            [
+              -71.62811279296875,
+              -33.03921226939415
+            ],
+            [
+              -71.6279411315918,
+              -33.040363488475414
+            ],
+            [
+              -71.62712574005127,
+              -33.042054314225624
+            ],
+            [
+              -71.62588119506836,
+              -33.04295367640177
+            ],
+            [
+              -71.62382125854492,
+              -33.04399692502197
+            ],
+            [
+              -71.62124633789061,
+              -33.04482432031388
+            ],
+            [
+              -71.61824226379395,
+              -33.04522002835811
+            ],
+            [
+              -71.61536693572998,
+              -33.045148081573224
+            ],
+            [
+              -71.61339282989502,
+              -33.04532794842526
+            ],
+            [
+              -71.61043167114258,
+              -33.04529197508424
+            ],
+            [
+              -71.60738468170166,
+              -33.04507613472954
+            ],
+            [
+              -71.60532474517822,
+              -33.04457250517826
+            ],
+            [
+              -71.60511016845702,
+              -33.04367315953113
+            ],
+            [
+              -71.6063117980957,
+              -33.04313354773508
+            ],
+            [
+              -71.60910129547119,
+              -33.043313418701075
+            ],
+            [
+              -71.61283493041992,
+              -33.0433493928502
+            ],
+            [
+              -71.6154956817627,
+              -33.04338536698462
+            ],
+            [
+              -71.61978721618652,
+              -33.043205496165555
+            ],
+            [
+              -71.62193298339844,
+              -33.04262990707621
+            ],
+            [
+              -71.62437915802002,
+              -33.040687266131386
+            ],
+            [
+              -71.6258382797241,
+              -33.03928422102748
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#7ade71",
+        "fill-opacity": 0.5,
+        "nameID": "Zona2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -71.62605285644531,
+              -33.050867667578
+            ],
+            [
+              -71.62360668182373,
+              -33.050867667578
+            ],
+            [
+              -71.62360668182373,
+              -33.04885326456898
+            ],
+            [
+              -71.62605285644531,
+              -33.04885326456898
+            ],
+            [
+              -71.62605285644531,
+              -33.050867667578
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#7ade71",
+        "fill-opacity": 0.5,
+        "nameID": "Zona3"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -71.61566734313965,
+              -33.05248635088923
+            ],
+            [
+              -71.61330699920654,
+              -33.05248635088923
+            ],
+            [
+              -71.61330699920654,
+              -33.050615869721895
+            ],
+            [
+              -71.61566734313965,
+              -33.050615869721895
+            ],
+            [
+              -71.61566734313965,
+              -33.05248635088923
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#7ade71",
+        "fill-opacity": 0.5,
+        "nameID": "Zona4"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -71.60682678222656,
+              -33.05320575614281
+            ],
+            [
+              -71.60390853881836,
+              -33.05320575614281
+            ],
+            [
+              -71.60390853881836,
+              -33.05155111527225
+            ],
+            [
+              -71.60682678222656,
+              -33.05155111527225
+            ],
+            [
+              -71.60682678222656,
+              -33.05320575614281
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
+--->
