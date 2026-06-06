@@ -1,6 +1,6 @@
 # Entorno
 
-## Popups del mapa
+## Popups del mapa.
 
 Los popups del mapa aparecen en pantalla tras hacer click en una zona geográfica. Estos popups contienen un formulario con los atributos y propiedades de la zona seleccionada.
 
